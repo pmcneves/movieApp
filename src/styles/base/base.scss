@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.flex {
+    display:flex
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center
+}

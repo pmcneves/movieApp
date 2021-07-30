@@ -1,0 +1,43 @@
+.login-layout {
+    align-items: center;
+    background: url('../../assets/illustrations/bg.jpg');
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.box-container {
+    background: fade-out($dark, .35);
+    border-radius: 5px;
+    color: $white;
+    padding: $l-size $m-size;
+    width: 75%;
+}
+
+.box-title {
+    margin: 0 0 $s-size 0;
+}
+
+@media only screen and (min-width: 600px) {
+    .box-container {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .box-container {
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .box-container {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .box-container {
+        width: 25%;
+    }
+}
