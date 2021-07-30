@@ -1,0 +1,43 @@
+.movie-card__container {
+    margin: $m-size;
+    position: relative;
+    overflow: auto;
+    height: 28rem;
+    width: 20rem; 
+    &--NA {
+        @extend .movie-card__container;
+        background-color: $mid-grey;
+    }
+}
+
+.movie-card__poster {
+    display: block;
+    opacity: 1;
+    transition: .5s ease;
+    width: 20rem;
+    height: 100%;
+}
+
+.movie-card__overlay {
+    font-weight: bold;
+    height: 100%;
+    opacity: 0;
+    padding-left: $s-size;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    transition: .5s ease;
+    width: 100%;
+        h3 {
+            position:absolute;
+            bottom:10%;
+        }
+        p {
+            position: absolute;
+            bottom: 0%;
+        }
+        img {
+            float:right;
+            margin: $s-size $s-size 0 0;
+        }
+}

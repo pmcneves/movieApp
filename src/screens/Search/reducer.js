@@ -1,35 +1,37 @@
-import types from "./actions";
+import types from './actions'
 
 const initialState = {
+    searchValue:'',
     loading: false,
-    authed: false,
-    activeUid: '',
-    error: ''
+    movies: [],
+    error:''
 }
 
-const authReducer = (state=initialState, action) => {
+const moviesReducer = (state=initialState, action) => {
     switch(action.type) {
-        case types.START_LOGIN:
+        case types.START_FETCHING:
             return {
                 ...state,
                 loading: true,
+                searchValue: action.searchValue,
             }
-        case types.LOGIN_SUCESSFUL:
+        case types.FETCH_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                authed: true,
-                activeUid: action.uid
+                movies: action.movies
             }
-        case types.LOGIN_FAILED:
+        case types.FETCH_FAIL:
             return {
                 ...state,
                 loading: false,
+                movies: [],
                 error: action.err
+                
             }
         default:
             return state
     }
 }
 
-export default authReducer
+export default moviesReducer

@@ -1,0 +1,11 @@
+.search-bar {
+    padding: $s-size $l-size;
+    width: 80%;
+    font-size: $font-size-small;
+}
+
+@media only screen and (min-width: 600px) {
+    .search-bar {
+        width: 100%;
+    }
+}

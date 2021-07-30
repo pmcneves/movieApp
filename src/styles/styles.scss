@@ -4,6 +4,11 @@
 
 //Screens
 @import '../screens/Login/styles.scss';
+@import '../screens/Search/styles.scss';
 //Containers
+@import '../containers/Header/styles.scss';
 //Components
 @import '../components/Button/styles.scss';
+@import '../components/Navbar/styles.scss';
+@import '../components/Input/styles.scss';
+@import '../components/MovieCard/styles.scss';
