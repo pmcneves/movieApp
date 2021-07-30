@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga'
 import sagas from './sagas'
 import authReducer from '../screens/Login/reducer'
 import moviesReducer from "../screens/Search/reducer"
+import movieReducer from '../screens/Movie/reducer'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -12,6 +13,7 @@ const configureStore = () => {
         combineReducers({
             auth: authReducer,
             moviesData: moviesReducer,
+            movieData: movieReducer,
         }),
         composeWithDevTools(applyMiddleware(sagaMiddleware))
     );

@@ -18,6 +18,15 @@ const app = () => !firebase.apps.length
 app()
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+// const googleAuthProvider = firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
+//     .then(() => {
+//         var provider = new firebase.auth.GoogleAuthProvider();
+//         return firebase.auth().signInWithRedirect(provider);
+//     })
+//     .catch((error) => {
+//         var errorCode = error.code;
+//         var errorMessage = error.message;
+//     });
 const database = firebase.database()
 const auth = firebase.auth()
 

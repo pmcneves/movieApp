@@ -11,7 +11,7 @@ const AppRouter = () => {
             <Switch>
                 <PublicRoute path="/" exact component={Login} />
                 <PrivateRoute path="/search" component={Search} />
-                <PrivateRoute path="/movie/:id" component={Movie} />
+                <PrivateRoute path="/movie/:imdbId" component={Movie} />
             </Switch>
         </BrowserRouter>
     )

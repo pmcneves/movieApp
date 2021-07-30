@@ -28,7 +28,7 @@ const Search = () => {
 
     return (
         <div>
-            <div className="text-center">
+            <div>
                 <Input
                     submitFn={searchMovies}
                     value={searchValue}
