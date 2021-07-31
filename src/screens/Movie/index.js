@@ -9,6 +9,7 @@ import goBackGrey from '../../assets/icons/icon-arrow-grey.svg';
 import goBackWhite from '../../assets/icons/icon-arrow-white.svg';
 import imdbLogo from '../../assets/logos/logo-imdb.svg';
 import rtLogo from '../../assets/logos/logo-rotten-tomatoes.svg';
+import MovieSubtitle from "../../components/MovieSubtitle"
 
 
 const Movie = ({match}) => {
@@ -30,9 +31,9 @@ const Movie = ({match}) => {
     
     
     return (
-        <section>
+        <div className="main-container movie-container">
             <div>
-                <Button onClick={goBack}>
+                <Button fn={goBack} classes={'go-back-btn'}>
                     <img 
                         alt="hover" 
                         src={goBackGrey} 
@@ -40,53 +41,53 @@ const Movie = ({match}) => {
                         onMouseOut={e=>e.currentTarget.src=goBackGrey}/>
                 </Button>
             </div>
-            <div>
-                <div>
-                    <div>
+            <section className="movie-section">
+                <div className="left-card text-center ">
+                    <div className="flex justify-center movie-info">
                         <p>{Runtime !== 'N/A' ? minToHours(Runtime) : 'N/A'}</p>
                         <p>{Year}</p>
                         <p>{Rated}</p>
                     </div>
-                    <div>
+                    <div className="movie-title">
                         <h1>{Title}</h1>
                     </div>
-                    <div>
-                        <div>
-                            <img src={imdbLogo} alt="imdb-logo"/>
-                            <p>{imdbRating !== 'N/A' ? `${imdbRating}/10` : 'N/A'}</p>
+                    <div className="flex justify-center ratings">
+                        <div className="rating">
+                            <img className="rating-logo--imdb" src={imdbLogo} alt="imdb-logo"/>
+                            <p className="rating-numbers">{imdbRating !== 'N/A' ? `${imdbRating}/10` : 'N/A'}</p>
                         </div>
-                        <div>
-                            <img src={rtLogo} alt="rt-logo"/>
-                            <p>{Metascore !== 'N/A' ? `${Metascore}%` : 'N/A'}</p>
+                        <div className="rating">
+                            <img className="rating-logo--rt" src={rtLogo} alt="rt-logo"/>
+                            <p className="rating-numbers">{Metascore !== 'N/A' ? `${Metascore}%` : 'N/A'}</p>
                         </div>
                         <button> 
                             lol
                         </button> 
                     </div>
-                    <div>
-                        <h3>Plot</h3>
+                    <div className="movie-plot">
+                        <MovieSubtitle text="Plot" />
                         <p>{Plot}</p>
                     </div>
-                    <div>
-                        <div>
-                            <h3>Cast</h3>
+                    <div className="movie-cgd">
+                        <div className="movie-cgd-subsection">
+                            <MovieSubtitle text="Cast"/>
                             {Actors.map((actor) => <p key={actor}>{actor}</p>)}
                         </div>
-                        <div>
-                            <h3>Genre</h3>
+                        <div className="movie-cgd-subsection">
+                            <MovieSubtitle text="Genre" />
                             {Genre.map((genre) => <p key={genre}>{genre}</p>)}
                         </div>
-                        <div>
-                            <h3>{Director.length > 1 ? 'Directors': 'Director'}</h3>
+                        <div className="movie-cgd-subsection">
+                            <MovieSubtitle text={Director.length > 1 ? 'Directors': 'Director'}/>
                             {Director.map((director) => <p key={director}>{director}</p>)}
                         </div>
                     </div>
                 </div>
-                <div>
-                    <img src={Poster} alt={`${Poster} Poster`}/>
+                <div className="flex justify-center right-card">
+                    <img className="movie-poster" src={Poster} alt={`${Poster} Poster`}/>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     )
 }
 

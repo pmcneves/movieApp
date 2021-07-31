@@ -1,0 +1,111 @@
+.movie-section p {
+    margin-top: $m-size;
+    margin-bottom: $m-size;
+}
+
+.movie-container {
+    margin: 0 auto;
+}
+
+//info
+.movie-info {
+    color: $light-grey;
+    font-size: $font-size-medium;
+    p {
+        margin: $s-size $l-size $s-size 0
+    }
+}
+
+//movie name
+.movie-title {
+    font-size: $font-size-large;
+    margin-top: $xl-size;
+    font-weight: bold;
+}
+
+//ratings
+.ratings {
+    margin-top: $xl-size;
+}
+
+.rating {
+    border: 1px solid $mid-grey;
+    border-radius: 5px;
+    display: flex;
+    margin-right: $m-size;
+    overflow:hidden;
+}
+
+.rating-logo {
+    color: $dark;
+    font-weight: bold;
+    margin: 0;
+    padding: $s-size
+}
+
+.rating-logo--imdb {
+    @extend .rating-logo;
+    background: $yellow;
+}
+
+.rating-logo--rt {
+    @extend .rating-logo;
+    background: $red;
+}
+
+.rating-numbers {
+    padding: $s-size;
+    margin: 0;
+    font-weight: bold;
+}
+
+//poster
+
+.right-card {
+    margin-top: $xl-size;
+}
+
+.movie-poster {
+    border-radius: 10%;
+    height: 325px;
+    width: 220px;
+}
+
+@media only screen and (min-width: 700px) {
+    .movie-section {
+        display: flex;
+        align-items: center;
+    }
+    .movie-info,
+    .ratings {
+        justify-content: start;
+    }
+    .movie-title {
+        font-size: $font-size-xlarge;
+    }
+    .right-card,
+    .left-card {
+        width: 50%
+    }
+    .left-card {
+        text-align: left;
+    }
+    .movie-poster {
+        height: 400px;
+        width: 250px;
+    }
+    .movie-cgd {
+        display: flex;
+        justify-content: space-between;
+    }
+    .movie-cgd-subsection {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 1275px) {
+    .movie-poster {
+        height: 600px;
+        width: 400px;
+    }
+}

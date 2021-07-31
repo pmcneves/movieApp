@@ -6,8 +6,8 @@ const Navbar = () => {
     return (
         <nav>
             <ul>
-                <NavLink to="/profile" className="navbar-item" activeClassName="selected">Profile</NavLink>
-                <NavLink to="/movieapp" className="navbar-item" activeClassName="selected">Search</NavLink>
+                <NavLink to="/profile" className="navbar-item">Profile</NavLink>
+                <NavLink to="/search" className="navbar-item">Search</NavLink>
                 <Button>
                     Logout
                 </Button>

@@ -6,7 +6,11 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: $dark;
     color:white;
+}
 
+.main-container {
+    margin: 0 auto;
+    padding: $l-size;
 }
 
 .text-center {
@@ -27,4 +31,13 @@ body {
 
 .align-items-center {
     align-items: center
+}
+
+
+@media (min-width: 600px) {
+    .main-container {
+        max-width: 70%;
+        margin: 0 auto;
+        padding: $l-size;
+    }
 }

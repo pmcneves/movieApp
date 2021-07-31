@@ -2,8 +2,8 @@ import Navbar from '../../components/Navbar/'
 
 const Header = () => {
     return (
-        <header>
-            <div className="flex justify-between content-container align-items-center">
+        <header className="main-container">
+            <div className="flex justify-between align-items-center ">
                 <div className="brand">Pick a Movie!</div>
                 <Navbar />
             </div>

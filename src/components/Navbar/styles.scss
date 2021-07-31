@@ -5,3 +5,10 @@
     margin-right: $s-size
 
 }
+
+@media only screen and (min-width: 700px) {
+    .navbar-item {
+        font-size: $font-size-large;
+        margin-right: $l-size
+    }
+}

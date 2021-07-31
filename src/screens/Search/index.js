@@ -8,6 +8,7 @@ import { moviesSelector } from './selectors';
 const Search = () => {
     const dispatch = useDispatch();
     const {movies} = useSelector(state=>state.moviesData)
+    const {loading} = useSelector(state=>state.moviesData)
     const [searchValue, setSearchValue] = useState('')
     const [search, setSearch] = useState('')
 
@@ -27,7 +28,7 @@ const Search = () => {
     }, [search])
 
     return (
-        <div>
+        <div className="main-container">
             <div>
                 <Input
                     submitFn={searchMovies}
@@ -35,7 +36,8 @@ const Search = () => {
                     changeFn={setSearchValue} 
                     classes={'search-bar'}
                 />
-                <section className="flex justify-center align-center movie-cards-container">
+                {/* <section className="flex justify-center align-center movie-cards-container"> */}
+                <section className="movie-cards-container">
                     {movies.map( (movie, i) => <MovieCard key={i} movie={movie}/> )}
                 </section>
             </div>
