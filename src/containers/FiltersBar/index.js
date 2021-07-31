@@ -11,7 +11,6 @@ const FiltersBar = () => {
     const [filtersVisibility, setFiltersVisibility] = useState(false)
     const [visibleClass, setVisibleClass] = useState('')
 
-
     //show/hide more filters
     const showFiltersHandler = () => {
         setFiltersVisibility(!filtersVisibility)

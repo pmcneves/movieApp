@@ -4,11 +4,13 @@ import MovieCard from '../../components/MovieCard'
 import Loading from "../../components/Loading"
 import { startSetFav } from "./actions"
 import FiltersBar from "../../containers/FiltersBar"
+import { filteredFavourites } from "./selectors"
 
 const Favourites = () => {
     const dispatch = useDispatch()
-    const {loading} = useSelector(state=>state.favouriteMovies)
-    const {favourites} = useSelector(state=>state.favouriteMovies)
+    const {loading, favourites, filters} = useSelector(state=>state.favouriteMovies)
+
+    
 
     useEffect(() => {
         dispatch(startSetFav())
@@ -25,7 +27,7 @@ const Favourites = () => {
                     <h1>Check out your favourite movies!</h1>
                     <FiltersBar/>
                     <section className="movie-cards-container">
-                        {favourites.map((movie) => <MovieCard movie={movie} key={movie.imdbID} showFavIcon={false}/>)}
+                        {filteredFavourites(favourites, filters).map((movie) => <MovieCard movie={movie} key={movie.imdbID} showFavIcon={false}/>)}
                     </section>
                 </div>
             ) : (

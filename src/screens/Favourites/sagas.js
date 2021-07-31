@@ -5,7 +5,6 @@ import { currentUserId } from "./selectors";
 
 
 function* setFilters({filterObj}) {
-    console.log(filterObj)
     try {
         switch(filterObj.filterType) {
             case 'title':
