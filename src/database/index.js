@@ -18,15 +18,6 @@ const app = () => !firebase.apps.length
 app()
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-// const googleAuthProvider = firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
-//     .then(() => {
-//         var provider = new firebase.auth.GoogleAuthProvider();
-//         return firebase.auth().signInWithRedirect(provider);
-//     })
-//     .catch((error) => {
-//         var errorCode = error.code;
-//         var errorMessage = error.message;
-//     });
 const database = firebase.database()
 const auth = firebase.auth()
 
@@ -34,3 +25,27 @@ export const loginToDb = async () => await auth
     .signInWithPopup(googleAuthProvider)
     .then(res => res)
     .catch(err=>err)
+
+export const logoutFromDb = async () => await auth
+    .signOut()
+
+export const addFavouriteToDb = async ({uid, favMovie}) => await database
+    .ref(`users/${uid}/favourites/${favMovie.imdbID}`)
+    .set(favMovie)
+
+export const removeFavouriteFromDb = async ({uid,imdbId}) => await database
+    .ref(`users/${uid}/favourites/${imdbId}`)
+    .remove()
+
+export const fetchFavouritesFromDb = async uid => await database
+    .ref(`users/${uid}/favourites`)
+    .once('value')
+    .then(snapshot => {
+        const movies = [];
+        snapshot.forEach(childSnapshot => {
+            movies.push({
+                ...childSnapshot.val()
+            })
+        })
+        return movies
+    })

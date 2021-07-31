@@ -5,6 +5,7 @@ import sagas from './sagas'
 import authReducer from '../screens/Login/reducer'
 import moviesReducer from "../screens/Search/reducer"
 import movieReducer from '../screens/Movie/reducer'
+import favReducer from "../screens/Favourites/reducer"
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -14,6 +15,7 @@ const configureStore = () => {
             auth: authReducer,
             moviesData: moviesReducer,
             movieData: movieReducer,
+            favouriteMovies: favReducer,
         }),
         composeWithDevTools(applyMiddleware(sagaMiddleware))
     );

@@ -7,9 +7,12 @@ import { useHistory } from "react-router-dom";
 import { minToHours } from "./utils";
 import goBackGrey from '../../assets/icons/icon-arrow-grey.svg';
 import goBackWhite from '../../assets/icons/icon-arrow-white.svg';
+import heartWhite from '../../assets/icons/icon-heart-white.svg'
+import heartFull from '../../assets/icons/icon-heart-full.svg'
 import imdbLogo from '../../assets/logos/logo-imdb.svg';
 import rtLogo from '../../assets/logos/logo-rotten-tomatoes.svg';
 import MovieSubtitle from "../../components/MovieSubtitle"
+import { startAddFav } from "../Favourites/actions"
 
 
 const Movie = ({match}) => {
@@ -19,6 +22,10 @@ const Movie = ({match}) => {
     const {movie} = useSelector (state => state.movieData)  
 
     const goBack = () => history.goBack()
+
+    const addToFavouritesHandler = movie => {
+        dispatch(startAddFav(movie))
+    }
     
     useEffect(  () => {
         dispatch(fetchMovie(match.params.imdbId))
@@ -60,9 +67,10 @@ const Movie = ({match}) => {
                             <img className="rating-logo--rt" src={rtLogo} alt="rt-logo"/>
                             <p className="rating-numbers">{Metascore !== 'N/A' ? `${Metascore}%` : 'N/A'}</p>
                         </div>
-                        <button> 
-                            lol
-                        </button> 
+                        <Button classes={'fav-btn'} fn={()=>addToFavouritesHandler(movie)}> 
+                            <p>Add to favourites</p>
+                            <img src={heartWhite} />
+                        </Button> 
                     </div>
                     <div className="movie-plot">
                         <MovieSubtitle text="Plot" />

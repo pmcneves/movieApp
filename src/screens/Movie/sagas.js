@@ -3,7 +3,6 @@ import types, { fetchMovieSuccess, fetchMovieFailure } from "./actions";
 
 
 function* getMovie({id}) {
-    console.log(id)
     const url = `http://www.omdbapi.com/?i=${id}&type=movie&apikey=10671e9d`
     try {
         const response = yield call (fetch, url)

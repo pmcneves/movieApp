@@ -1,4 +1,30 @@
 .btn {
     border: none;
     background: none;
+    cursor: pointer;
+    color: $white;
+    font-size: $font-size-medium;
+
+}
+
+.fav-btn {
+    display: flex;
+    align-items: center;
+    padding-left: $m-size;
+    padding-right: $m-size;
+    border: 1px solid $mid-grey;
+    border-radius: 5px;
+    p {
+        margin-right: $s-size;
+    }
+    &:hover {
+        border-color: $white;
+    }
+}
+
+.logout-btn {
+    border: 1px solid $white;
+    background-color: $white;
+    color: $dark;
+    font-weight: bold;
 }

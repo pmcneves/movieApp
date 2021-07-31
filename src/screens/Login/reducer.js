@@ -4,7 +4,10 @@ const initialState = {
     loading: false,
     authed: false,
     activeUid: '',
-    error: ''
+    error: {
+        name: '',
+        message: '',
+    }
 }
 
 const authReducer = (state=initialState, action) => {
@@ -25,7 +28,31 @@ const authReducer = (state=initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                error: action.err
+                error: {
+                    name: action.err.name,
+                    message: action.err.message,
+                }
+            }
+        case types.START_LOGIN:
+            return {
+                ...state,
+                loading: true
+            }
+        case types.LOGOUT_SUCESSFUL:
+            return {
+                ...state,
+                loading: false,
+                authed: false,
+                activeUid: '',
+            }
+        case types.LOGOUT_FAILED:
+            return {
+                ...state,
+                loading: false,
+                error: {
+                    name: action.err.name,
+                    message: action.err.message,
+                }
             }
         default:
             return state

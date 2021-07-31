@@ -1,14 +1,13 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Input from '../../components/Input'
 import MovieCard from '../../components/MovieCard';
 import { fetchMovies } from './actions';
-import { moviesSelector } from './selectors';
 
 const Search = () => {
     const dispatch = useDispatch();
     const {movies} = useSelector(state=>state.moviesData)
-    const {loading} = useSelector(state=>state.moviesData)
+    // const {loading} = useSelector(state=>state.moviesData)
     const [searchValue, setSearchValue] = useState('')
     const [search, setSearch] = useState('')
 
@@ -30,12 +29,15 @@ const Search = () => {
     return (
         <div className="main-container">
             <div>
-                <Input
-                    submitFn={searchMovies}
-                    value={searchValue}
-                    changeFn={setSearchValue} 
-                    classes={'search-bar'}
-                />
+                <form onSubmit={searchMovies}>
+                    <Input
+                        value={searchValue}
+                        changeFn={e=>setSearchValue(e.target.value)} 
+                        classes={'search-bar'}
+                        placeholder={'Search movies...'}
+                    />
+
+                </form>
                 {/* <section className="flex justify-center align-center movie-cards-container"> */}
                 <section className="movie-cards-container">
                     {movies.map( (movie, i) => <MovieCard key={i} movie={movie}/> )}

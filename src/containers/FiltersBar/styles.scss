@@ -1,0 +1,18 @@
+.filters {
+    justify-content: flex-end;
+}
+
+#favourite-filters__toggle { 
+    align-items: center;
+    background-color: $grey;
+    display: flex;
+    height: 0; 
+    justify-content: center;
+    list-style: none;
+    margin-top: $s-size;
+    overflow: hidden; 
+    transition: height 500ms ease-out;
+    &.visible{
+        height: 10rem;
+    }
+}

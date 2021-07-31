@@ -4,6 +4,11 @@
     font-size: $font-size-small;
 }
 
+.filters-title {
+    font-size: $font-size-small;
+    padding: $s-size $s-size;
+}
+
 @media only screen and (min-width: 600px) {
     .search-bar {
         width: 100%;
