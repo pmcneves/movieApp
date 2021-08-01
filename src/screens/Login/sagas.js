@@ -10,6 +10,7 @@ const clearStorage = () => localStorage.clear()
 function* logIn() {
     try {
         const {user} = yield call(loginToDb)
+        console.log(user.uid)
         yield put(loginSucessful(user.uid))
         yield call(getUid, user.uid)
     } catch(err) {
