@@ -24,7 +24,10 @@ const movieReducer = (state=initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                error: action.err
+                error: {
+                    name: action.err.name,
+                    message: action.err.message,
+                }
                 
             }
         default:

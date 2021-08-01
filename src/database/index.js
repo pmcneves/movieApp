@@ -29,12 +29,18 @@ export const loginToDb = async () => await auth
 export const logoutFromDb = async () => await auth
     .signOut()
 
+export const checkIsMovieFavourite = async ({userId, id}) => await database
+    .ref(`users/${userId}/favourites/${id}`)
+    .once('value')
+    .then(res=>res.val())
+    .catch(err=>err)
+
 export const addFavouriteToDb = async ({uid, favMovie}) => await database
     .ref(`users/${uid}/favourites/${favMovie.imdbID}`)
     .set(favMovie)
 
-export const removeFavouriteFromDb = async ({uid,imdbId}) => await database
-    .ref(`users/${uid}/favourites/${imdbId}`)
+export const removeFavouriteFromDb = async ({uid,id}) => await database
+    .ref(`users/${uid}/favourites/${id}`)
     .remove()
 
 export const fetchFavouritesFromDb = async uid => await database

@@ -43,6 +43,26 @@ const favReducer = (state=initialState, action) => {
                     message: action.err.message,
                 }
             }
+        case types.START_REMOVE_FAV:
+            return {
+                ...state,
+                loading: true
+            }
+        case types.REMOVE_FAV_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                favourites: state.favourites.filter(favourite => action.id !== favourite.imdbID)
+            }
+        case types.REMOVE_FAV_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: {
+                    name: action.err.name,
+                    message: action.err.message,
+                }
+            }
         case types.START_SET_FAV:
             return {
                 ...state,

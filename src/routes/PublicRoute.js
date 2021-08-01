@@ -7,7 +7,7 @@ const PublicRoute = ({component: Component, ...rest}) => {
     return (
         <Route {...rest} component={props => (
             isAuthed ? (
-                <Redirect to="/search"/> 
+                <Redirect to="/favourites"/> 
                 ) : (
                 <Component {...props}/>
                 )

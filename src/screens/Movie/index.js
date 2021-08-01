@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState, useMemo } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Button from '../../components/Button'
 import Loading from "../../components/Loading"
@@ -12,27 +12,47 @@ import heartFull from '../../assets/icons/icon-heart-full.svg'
 import imdbLogo from '../../assets/logos/logo-imdb.svg';
 import rtLogo from '../../assets/logos/logo-rotten-tomatoes.svg';
 import MovieSubtitle from "../../components/MovieSubtitle"
-import { startAddFav } from "../Favourites/actions"
+import { startAddFav, startRemoveFav } from "../Favourites/actions"
 
 
 const Movie = ({match}) => {
     const dispatch = useDispatch()
     const history = useHistory()
-    const {loading} = useSelector (state => state.movieData)
-    const {movie} = useSelector (state => state.movieData)  
+    const {loading, movie} = useSelector (state => state.movieData)
+    const [isFavourite, setIsFavourite] = useState(false)
 
     const goBack = () => history.goBack()
 
+    const removeFavouriteHandler = id => {
+        dispatch(startRemoveFav(id))
+        setIsFavourite(false)
+    }
+
     const addToFavouritesHandler = movie => {
         dispatch(startAddFav(movie))
+        setIsFavourite(true)
     }
-    
-    useEffect(  () => {
+
+    useEffect(() => {
         dispatch(fetchMovie(match.params.imdbId))
     }, [])
     
     if(loading)
     return <Loading/>
+
+    let buttonText, heartIcon, buttonClass, func;
+    if (isFavourite || movie.isFavourite) {
+        buttonText = 'Added'
+        heartIcon = heartFull
+        buttonClass = 'fav-btn-added'
+        func = () => removeFavouriteHandler(movie.imdbID)
+    } else {
+        buttonText = 'Add to favourites'
+        heartIcon = heartWhite
+        buttonClass = 'fav-btn-add'
+        func = () => addToFavouritesHandler(movie)
+
+    }
 
     const {Runtime, Year, Rated, Title, imdbRating, Metascore, Plot, Actors, Genre, Director, Poster} = movie;  
     
@@ -67,9 +87,9 @@ const Movie = ({match}) => {
                             <img className="rating-logo--rt" src={rtLogo} alt="rt-logo"/>
                             <p className="rating-numbers">{Metascore !== 'N/A' ? `${Metascore}%` : 'N/A'}</p>
                         </div>
-                        <Button classes={'fav-btn'} fn={()=>addToFavouritesHandler(movie)}> 
-                            <p>Add to favourites</p>
-                            <img src={heartWhite} />
+                        <Button classes={`fav-btn ${buttonClass}`} fn={func}> 
+                            <p>{buttonText}</p>
+                            <img src={heartIcon} />
                         </Button> 
                     </div>
                     <div className="movie-plot">

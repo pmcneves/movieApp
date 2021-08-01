@@ -2,6 +2,9 @@ const types = {
     START_ADD_FAV: 'START_ADD_FAV',
     ADD_FAV_SUCCESS: 'ADD_FAV_SUCCESS',
     ADD_FAV_FAIL: 'ADD_FAV_FAIL',
+    START_REMOVE_FAV:'START_REMOVE_FAV',
+    REMOVE_FAV_SUCCESS: 'REMOVE_FAV_SUCCESS',
+    REMOVE_FAV_FAIL: 'REMOVE_FAV_FAIL',
     START_SET_FAV: 'START_SET_FAV',
     SET_FAV_SUCCESS: 'SET_FAV_SUCCESS',
     SET_FAV_FAIL: 'SET_FAV_FAIL',
@@ -31,6 +34,23 @@ export const addMovieFailure = err => ({
     type: types.ADD_FAV_FAIL,
     err
 })
+
+// remove movie from favourites
+export const startRemoveFav = id => ({
+    type: types.START_REMOVE_FAV,
+    id
+})
+
+export const removeFavSuccess = id => ({
+    type: types.REMOVE_FAV_SUCCESS,
+    id
+})
+
+export const removeMovieFailure = err => ({
+    type: types.REMOVE_FAV_FAIL,
+    err
+})
+
 
 // set favourites movies on load
 export const startSetFav = () => ({

@@ -1,4 +1,5 @@
 export const currentUserId = state => state.auth.activeUid
+export const favourites = state => state.favouriteMovies.favourites
 
 export const displayLanguages = favourites => {
     let categories = [];

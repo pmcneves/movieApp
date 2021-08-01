@@ -1,5 +1,11 @@
-header {
+.header {
     color: $white;
     padding: $l-size;
     margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.brand {
+    font-family: 'Dancing Script', sans-serif;
+    font-size: $font-size-xlarge
 }

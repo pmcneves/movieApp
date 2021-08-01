@@ -2,9 +2,9 @@ import Navbar from '../../components/Navbar/'
 
 const Header = () => {
     return (
-        <header className="main-container">
+        <header className="main-container header">
             <div className="flex justify-between align-items-center ">
-                <div className="brand">Pick a Movie!</div>
+                <div className="brand">Movie Time!</div>
                 <Navbar />
             </div>
             

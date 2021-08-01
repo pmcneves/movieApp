@@ -17,8 +17,19 @@
     p {
         margin-right: $s-size;
     }
+}
+
+.fav-btn-added {
+    background: $red;
+    color: $white;
+}
+
+.fav-btn-add {
+    color: $light-grey;
     &:hover {
-        border-color: $white;
+        border-color: $red;
+        color: $white;
+        text-shadow: 0px 0px 1px;
     }
 }
 
