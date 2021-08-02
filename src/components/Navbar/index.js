@@ -4,7 +4,7 @@ import { startLogout } from '../../screens/Login/actions';
 import Button from '../Button';
 
 
-const Navbar = () => {
+const Navbar = ({showLinks}) => {
     const dispatch = useDispatch()
 
     const logOutHandler = () => {
@@ -12,7 +12,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav>
+        <div className='navbar-links'>
             <ul>
                 <NavLink to="/favourites" className="navbar-item">Favourites</NavLink>
                 <NavLink to="/search" className="navbar-item">Search</NavLink>
@@ -21,7 +21,7 @@ const Navbar = () => {
                 </Button>
 
             </ul>
-        </nav>
+        </div>
     )
 }
 

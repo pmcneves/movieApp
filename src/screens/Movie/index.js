@@ -78,16 +78,18 @@ const Movie = ({match}) => {
                     <div className="movie-title">
                         <h1>{Title}</h1>
                     </div>
-                    <div className="flex justify-center ratings">
-                        <div className="rating">
-                            <img className="rating-logo--imdb" src={imdbLogo} alt="imdb-logo"/>
-                            <p className="rating-numbers">{imdbRating !== 'N/A' ? `${imdbRating}/10` : 'N/A'}</p>
+                    <div className="ratings"> 
+                        <div className="flex justify-center">
+                            <div className="flex rating">
+                                <img className="rating-logo--imdb" src={imdbLogo} alt="imdb-logo"/>
+                                <p className="rating-numbers">{imdbRating !== 'N/A' ? `${imdbRating}/10` : 'N/A'}</p>
+                            </div>
+                            <div className="flex rating">
+                                <img className="rating-logo--rt" src={rtLogo} alt="rt-logo"/>
+                                <p className="rating-numbers">{Metascore !== 'N/A' ? `${Metascore}%` : 'N/A'}</p>
+                            </div>
                         </div>
-                        <div className="rating">
-                            <img className="rating-logo--rt" src={rtLogo} alt="rt-logo"/>
-                            <p className="rating-numbers">{Metascore !== 'N/A' ? `${Metascore}%` : 'N/A'}</p>
-                        </div>
-                        <Button classes={`fav-btn ${buttonClass}`} fn={func}> 
+                        <Button classes={`flex align-items-center fav-btn ${buttonClass}`} fn={func}> 
                             <p>{buttonText}</p>
                             <img src={heartIcon} />
                         </Button> 

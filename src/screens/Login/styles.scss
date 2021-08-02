@@ -1,7 +1,8 @@
 .login-layout {
     align-items: center;
-    background: url('../../assets/illustrations/bg.jpg');
+    background: url('../../assets/illustrations/bg-2.jpg');
     background-size: cover;
+    background-position: center;
     height: 100vh;
     width: 100vw;
 }
@@ -10,12 +11,36 @@
     background: fade-out($dark, .35);
     border-radius: 5px;
     color: $white;
-    padding: $l-size $m-size;
+    padding: $xl-size $l-size;
     width: 75%;
 }
 
 .box-title {
     margin: 0 0 $s-size 0;
+    font-size: $font-size-xlarge;
+    font-family: 'Dancing Script', sans-serif;
+}
+
+.login-subtitle {
+    font-size: $font-size-medium;
+    margin-top: $l-size;
+    margin-bottom: $l-size;
+}
+
+.login-btn-container {
+    background-color: $white;
+    padding: $m-size $s-size;
+    border-radius: 10px;
+}
+
+.login-btn-img {
+    width:30px;
+    height: 30px;
+}
+
+.logging-in{
+    color: $grey;
+    font-style: italic;
 }
 
 @media only screen and (min-width: 600px) {

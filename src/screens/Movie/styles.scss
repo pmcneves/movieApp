@@ -31,7 +31,6 @@
 .rating {
     border: 1px solid $mid-grey;
     border-radius: 5px;
-    display: flex;
     margin-right: $m-size;
     overflow:hidden;
 }
@@ -78,7 +77,8 @@
     }
     .movie-info,
     .ratings {
-        justify-content: start;
+        display: flex;
+        justify-content: start;        
     }
     .movie-title {
         font-size: $font-size-xlarge;

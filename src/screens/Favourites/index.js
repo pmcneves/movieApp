@@ -31,8 +31,8 @@ const Favourites = () => {
                     </section>
                 </div>
             ) : (
-                <div>
-                    No fav
+                <div className="no-favourites">
+                    Oppss! You have no favourites. Search for your picks!
                 </div>
             )}
             

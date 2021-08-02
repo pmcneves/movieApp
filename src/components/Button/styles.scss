@@ -4,16 +4,17 @@
     cursor: pointer;
     color: $white;
     font-size: $font-size-medium;
+    font-family: 'Roboto';
+
 
 }
 
 .fav-btn {
-    display: flex;
-    align-items: center;
-    padding-left: $m-size;
-    padding-right: $m-size;
     border: 1px solid $mid-grey;
     border-radius: 5px;
+    padding-left: $m-size;
+    padding-right: $m-size;
+    margin: $l-size auto;
     p {
         margin-right: $s-size;
     }
@@ -38,4 +39,19 @@
     background-color: $white;
     color: $dark;
     font-weight: bold;
+    font-size: $font-size-small;
+
+}
+
+.login-btn {
+    color: $light-grey;
+}
+
+@media only screen and (min-width: 700px) {
+    .logout-btn {
+        font-size: $font-size-medium;
+    }
+    .fav-btn {
+        margin: 0
+    }
 }

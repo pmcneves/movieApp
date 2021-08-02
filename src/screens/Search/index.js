@@ -29,7 +29,7 @@ const Search = () => {
     return (
         <div className="main-container">
             <div>
-                <form onSubmit={searchMovies}>
+                <form onSubmit={searchMovies} className="text-center">
                     <Input
                         value={searchValue}
                         changeFn={e=>setSearchValue(e.target.value)} 
@@ -38,7 +38,6 @@ const Search = () => {
                     />
 
                 </form>
-                {/* <section className="flex justify-center align-center movie-cards-container"> */}
                 <section className="movie-cards-container">
                     {movies.map( (movie, i) => <MovieCard key={i} movie={movie}/> )}
                 </section>

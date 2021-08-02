@@ -2,13 +2,30 @@
     color: $white;
     font-size: $font-size-small;
     text-decoration: none;
-    margin-right: $s-size
-
+    margin-right: $s-size;
 }
+
+#none {
+    display: none;
+}
+
+#show {
+    background-color: $grey;
+    height: 1000px; 
+    display: flex;
+    position: absolute;
+    overflow: hidden; 
+    top: 110px;
+    left: 0;
+}
+
 
 @media only screen and (min-width: 700px) {
     .navbar-item {
         font-size: $font-size-medium;
         margin-right: $l-size
+    }
+    .navbar-links {
+        display: flex
     }
 }
