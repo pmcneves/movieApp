@@ -114,7 +114,9 @@ const Movie = ({match}) => {
                     </div>
                 </div>
                 <div className="flex justify-center right-card">
-                    <img className="movie-poster" src={Poster} alt={`${Poster} Poster`}/>
+                    {
+                        Poster !== 'N/A' && <img className="movie-poster" src={Poster} alt={`${Poster} Poster`}/>
+                    }
                 </div>
             </section>
         </div>
