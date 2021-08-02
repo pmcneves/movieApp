@@ -7,7 +7,7 @@ import types, { fetchMovieSuccess, fetchMovieFailure } from "./actions";
 
 
 function* getMovie({id}) {
-    const url = `http://www.omdbapi.com/?i=${id}&type=movie&apikey=10671e9d`
+    const url = `https://www.omdbapi.com/?i=${id}&type=movie&apikey=10671e9d`
     const userId = yield select(currentUserId)
     const checkData = {
         userId,
