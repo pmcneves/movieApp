@@ -39,7 +39,6 @@ function* setFavourites() {
     const uid = yield select(currentUserId)
     try {
         const favourites = yield call(fetchFavouritesFromDb, uid)
-        console.log(favourites)
         yield put(setFavSuccess(favourites))
     } catch(err) {
         yield put(setFavFail(err))

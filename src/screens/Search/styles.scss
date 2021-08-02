@@ -6,3 +6,8 @@
     justify-items: center;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
 }
+
+.error {
+    margin-top: $xl-size;
+    text-align: center
+}

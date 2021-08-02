@@ -24,7 +24,7 @@ const Favourites = () => {
         <div className="main-container">
             {favourites.length >= 1 ? (
                 <div>
-                    <h1>Check out your favourite movies!</h1>
+                    <h1 className="fav-title">Check out your favourite movies!</h1>
                     <FiltersBar/>
                     <section className="movie-cards-container">
                         {filteredFavourites(favourites, filters).map((movie) => <MovieCard movie={movie} key={movie.imdbID} showFavIcon={false}/>)}

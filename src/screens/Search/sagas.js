@@ -1,12 +1,16 @@
 import { put, takeLatest } from "redux-saga/effects";
-import types, { fetchSuccess, fetchFailure} from "./actions";
+import types, { fetchSuccess, fetchFailure, fetchNoResponse} from "./actions";
 
 
-function* getMovies({searchValue}) {
-    const url = `https://www.omdbapi.com/?s=${searchValue}&type=movie&apikey=10671e9d`
+function* getMovies({searchData}) {
+    const url = `https://www.omdbapi.com/?s=${searchData.search}&type=movie&apikey=10671e9d&page=${searchData.currentPage}`
     try {
-        const {Search} = yield fetch(url).then(res=>res.json())
-        yield put(fetchSuccess(Search))
+        const data = yield fetch(url).then(res=>res.json())
+        if(data.Response === 'True') {
+            yield put(fetchSuccess(data))
+        } else { 
+            yield put(fetchNoResponse(data.Error))
+        }
     } catch(err) {
         yield put(fetchFailure(err))
     }

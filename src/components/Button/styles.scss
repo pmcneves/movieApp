@@ -47,11 +47,25 @@
     color: $light-grey;
 }
 
+.pagination-btn {
+    border: 1px solid $white;
+    border-radius: 5px;
+    margin-left: $s-size;
+    font-size: $font-size-small;
+}
+
+.filters-btn {
+    font-size: $font-size-small;
+    margin-top: $m-size;
+}
+
 @media only screen and (min-width: 700px) {
-    .logout-btn {
-        font-size: $font-size-medium;
-    }
     .fav-btn {
+        margin: 0
+    }
+    .filters-btn {
+        display: block;
+        font-size: $font-size-small;
         margin: 0
     }
 }

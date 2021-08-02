@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom"
 import heartWhite from '../../assets/icons/icon-heart-white.svg'
 import heartFull from '../../assets/icons/icon-heart-full.svg'
+import { useSelector } from "react-redux"
 
 
 const MovieCard = ({movie, showFavIcon= true}) => {
 
+    const {favourites} = useSelector(state=>state.favouriteMovies)
+    const isMovieOnFavourites = favourites.some(mov => mov.imdbID === movie.imdbID)
     let favButton = heartWhite
+    if(isMovieOnFavourites) favButton = heartFull
 
     return (
         <div className={movie.Poster !== 'N/A' ? "movie-card-container" : "movie-card-container--NA"}>

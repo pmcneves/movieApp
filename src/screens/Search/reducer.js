@@ -4,6 +4,8 @@ const initialState = {
     searchValue:'',
     loading: false,
     movies: [],
+    totalResults: '',
+    responseError: '',
     error:''
 }
 
@@ -18,15 +20,26 @@ const moviesReducer = (state=initialState, action) => {
         case types.FETCH_SUCCESS:
             return {
                 ...state,
+                responseError: '',
                 loading: false,
-                movies: action.movies
+                totalResults: action.dataFromApi.totalResults,
+                movies: action.dataFromApi.Search
+            }
+        case types.FETCH_NO_RESPONSE:
+            return {
+                ...state,
+                loading: false,
+                responseError: action.errorFromApi
             }
         case types.FETCH_FAIL:
             return {
                 ...state,
                 loading: false,
                 movies: [],
-                error: action.err
+                error: {
+                    name: action.err.name,
+                    message: action.err.message,
+                }
                 
             }
         default:

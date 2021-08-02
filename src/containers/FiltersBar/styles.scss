@@ -1,18 +1,36 @@
 .filters {
-    justify-content: flex-end;
+    margin-top: $xl-size;
 }
 
-#favourite-filters__toggle { 
-    align-items: center;
+#favourite-filters-toggle { 
+    flex-direction: column;
     background-color: $grey;
-    display: flex;
     height: 0; 
-    justify-content: center;
-    list-style: none;
     margin-top: $s-size;
-    overflow: hidden; 
     transition: height 500ms ease-out;
+    overflow: hidden;
     &.visible{
-        height: 10rem;
+        height: 120px;
+    }
+}
+
+.sortBy {
+    margin-top: $l-size;
+    label {
+        margin-right: $s-size;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .filters {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .sortBy{
+        height: 100%;
+        margin-top: 0;
+        select {
+            height: 100%
+        }
     }
 }

@@ -9,7 +9,7 @@ const initialState = {
         title: '',
         genre: '',
         language: '',
-        sortBy: '',
+        sortBy: 'year',
         hasAwardsChecked: false,
     },
     error: {
